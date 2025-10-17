@@ -130,6 +130,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DB_scripts\" />
     <Folder Include="Profiles\" />
   </ItemGroup>
   <PropertyGroup>
