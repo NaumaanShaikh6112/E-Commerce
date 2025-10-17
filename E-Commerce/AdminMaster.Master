@@ -1,0 +1,106 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="E_Commerce.AdminMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>E-Commerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #343a40;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 60px;
+        }
+
+            .sidebar ul {
+                list-style: none;
+                padding-left: 0;
+            }
+
+                .sidebar ul li {
+                    padding: 10px 20px;
+                }
+
+                    .sidebar ul li:hover {
+                        background-color: #495057;
+                        cursor: pointer;
+                    }
+
+        .main-content {
+            margin-left: 200px;
+            padding: 20px;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">E-Commerce</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="Default.aspx">Add Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Products.aspx">Products List</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Cart.aspx">Customer List</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Contact.aspx">Orders</a></li>
+
+                        <!-- Dropdown for Login -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                               <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li><a class="dropdown-item" href="Profile.aspx">Profile</a></li>
+                                <li><a class="dropdown-item" href="Settings.aspx">Settings</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <asp:Button ID="btnAdminLogout" runat="server" Text="Logout" CssClass="dropdown-item" OnClick="btnAdminLogout_Click" />
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <ul>
+                <li><i class="fas fa-bars"></i>Menu</li>
+                <li><i class="fas fa-briefcase"></i>Work</li>
+                <li><i class="fas fa-edit"></i>Edit</li>
+                <li><i class="fas fa-comments"></i>Chat</li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+        </div>
+    </form>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+</body>
+</html>
